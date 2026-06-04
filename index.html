@@ -3,126 +3,486 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Indigenous Book Club — Too Much Lip Resources</title>
+<title>Indigenous Book Club — Curtin University Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap');
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Source Sans 3',sans-serif;background:#fdf6ee;color:#2c1a0e;min-height:100vh;padding:2rem 1rem}
-  .container{max-width:600px;margin:0 auto}
-  .header{text-align:center;margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:2px solid #c8773a}
-  .club-name{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:#c8773a;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem}
-  h1{font-family:'Playfair Display',serif;font-size:2rem;line-height:1.2;color:#2c1a0e;margin-bottom:0.5rem}
-  .author{font-size:1rem;color:#7a5c3e;font-weight:300}
-  .section{margin-bottom:2rem}
-  .section-label{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:#c8773a;font-weight:600;margin-bottom:0.75rem}
-  a.link-card{display:flex;align-items:center;gap:1rem;padding:0.9rem 1.1rem;background:#fff;border:1px solid #e8d8c4;border-radius:8px;text-decoration:none;color:#2c1a0e;margin-bottom:0.6rem;transition:border-color 0.2s,box-shadow 0.2s}
-  a.link-card:hover{border-color:#c8773a;box-shadow:0 2px 8px rgba(200,119,58,0.15)}
-  .link-icon{font-size:1.3rem;flex-shrink:0;width:2rem;text-align:center}
-  .link-text{flex:1}
-  .link-title{font-weight:600;font-size:0.95rem;margin-bottom:0.1rem}
-  .link-sub{font-size:0.8rem;color:#7a5c3e}
-  .footer{text-align:center;font-size:0.8rem;color:#a07850;margin-top:2rem;padding-top:1rem;border-top:1px solid #e8d8c4}
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --sand:      #f5ead8;
+    --bark:      #3b2010;
+    --ochre:     #c96d2a;
+    --rust:      #a84820;
+    --cream:     #fdf6ec;
+    --sage:      #7a8c6e;
+    --warm-grey: #8c7a6b;
+    --light-bg:  #f7f0e6;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--bark);
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--bark);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-brand {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #c5a882;
+    font-weight: 500;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.78rem;
+    color: #c5a882;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ochre); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--bark);
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 20%, #c96d2a18 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, #7a8c6e14 0%, transparent 60%);
+  }
+  .hero-content { position: relative; max-width: 620px; margin: 0 auto; }
+  .hero-eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    color: var(--sand);
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+  }
+  .hero-sub {
+    font-size: 1rem;
+    color: #b09070;
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto 2rem;
+    line-height: 1.75;
+  }
+  .hero-divider {
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--ochre), var(--rust));
+    margin: 0 auto;
+  }
+
+  /* ── ABOUT ── */
+  .about-section {
+    padding: 4rem 2rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+  }
+  .about-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    color: var(--bark);
+    margin-bottom: 1.1rem;
+    line-height: 1.25;
+  }
+  .about-section p {
+    font-size: 0.92rem;
+    color: #5a4030;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    max-width: 600px;
+  }
+
+  /* ── CARDS ── */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .card {
+    background: white;
+    border: 1px solid #e8d8c4;
+    border-radius: 10px;
+    padding: 1.3rem;
+  }
+  .card-icon { font-size: 1.4rem; margin-bottom: 0.6rem; }
+  .card h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--bark);
+    margin-bottom: 0.35rem;
+  }
+  .card p {
+    font-size: 0.78rem;
+    color: var(--warm-grey);
+    line-height: 1.55;
+  }
+
+  .safety-banner {
+    background: #f0ede8;
+    border-left: 3px solid var(--sage);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.3rem;
+    margin-top: 1.8rem;
+  }
+  .safety-banner p {
+    font-size: 0.82rem;
+    color: #4a5c40;
+    line-height: 1.65;
+  }
+
+  /* ── DIVIDER ── */
+  hr.divider {
+    border: none;
+    border-top: 1px solid #e8d8c4;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* ── SESSIONS ── */
+  .sessions-section {
+    padding: 3.5rem 2rem 4rem;
+    background: var(--light-bg);
+  }
+  .sessions-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .sessions-inner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    color: var(--bark);
+    margin-bottom: 0.4rem;
+    line-height: 1.25;
+  }
+  .sessions-inner > p {
+    font-size: 0.88rem;
+    color: var(--warm-grey);
+    margin-bottom: 2rem;
+  }
+
+  /* ── SESSION CARD ── */
+  .session-card {
+    background: white;
+    border: 1px solid #e0ceb8;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.2rem;
+  }
+  .session-card-header {
+    background: var(--bark);
+    padding: 1rem 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .session-number {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #c5a882;
+    font-weight: 500;
+  }
+  .session-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #c96d2a22;
+    border: 1px solid var(--ochre);
+    border-radius: 20px;
+    padding: 0.2rem 0.7rem;
+    font-size: 0.62rem;
+    color: var(--ochre);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .session-status.past {
+    background: #8c7a6b22;
+    border-color: var(--warm-grey);
+    color: var(--warm-grey);
+  }
+  .status-dot {
+    width: 5px; height: 5px;
+    background: var(--ochre);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .session-card-body {
+    padding: 1.5rem 1.6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .session-book h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--bark);
+    margin-bottom: 0.15rem;
+  }
+  .session-book .by {
+    font-size: 0.78rem;
+    color: var(--ochre);
+    font-weight: 500;
+    margin-bottom: 0.7rem;
+  }
+  .session-book p {
+    font-size: 0.8rem;
+    color: #6a4a30;
+    line-height: 1.65;
+  }
+  .session-meta { display: flex; flex-direction: column; gap: 0.75rem; }
+  .meta-row { display: flex; align-items: flex-start; gap: 0.65rem; }
+  .meta-icon {
+    width: 26px; height: 26px;
+    background: var(--light-bg);
+    border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+  .meta-label {
+    font-size: 0.57rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+    font-weight: 500;
+    margin-bottom: 0.1rem;
+  }
+  .meta-value {
+    font-size: 0.82rem;
+    color: var(--bark);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .meta-note {
+    font-size: 0.72rem;
+    font-weight: 300;
+    color: var(--warm-grey);
+  }
+  .session-card-footer {
+    padding: 1rem 1.6rem 1.4rem;
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    border-top: 1px solid #f0e4d0;
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.65rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary { background: var(--ochre); color: white; }
+  .btn-primary:hover { background: var(--rust); }
+  .btn-outline {
+    background: transparent;
+    color: var(--bark);
+    border: 1.5px solid #d4b896;
+  }
+  .btn-outline:hover { border-color: var(--ochre); color: var(--ochre); }
+
+  /* ── FUTURE SESSIONS ── */
+  .coming-soon {
+    background: white;
+    border: 1.5px dashed #d4b896;
+    border-radius: 10px;
+    padding: 1.8rem;
+    text-align: center;
+    margin-top: 0.4rem;
+  }
+  .coming-soon p {
+    font-size: 0.85rem;
+    color: var(--warm-grey);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bark);
+    padding: 2rem;
+    text-align: center;
+  }
+  footer p {
+    font-size: 0.72rem;
+    color: #8a6a50;
+    letter-spacing: 0.04em;
+    line-height: 1.9;
+  }
+  footer a { color: var(--ochre); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 540px) {
+    .session-card-body { grid-template-columns: 1fr; }
+    .cards { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 360px) {
+    .cards { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
-<div class="container">
-  <div class="header">
-    <p class="club-name">Curtin University Library · Indigenous Book Club</p>
-    <h1>Too Much Lip</h1>
-    <p class="author">Melissa Lucashenko</p>
-  </div>
 
-  <div class="section">
-    <p class="section-label">Read or listen</p>
-    <a class="link-card" href="https://wapldmc.overdrive.com/media/4160314" target="_blank">
-      <span class="link-icon">📚</span>
-      <span class="link-text">
-        <span class="link-title">Borrow ebook or audiobook — WA Public Libraries (Libby)</span>
-        <span class="link-sub">Free with your WA library card via OverDrive/Libby</span>
-      </span>
-    </a>
-    <a class="link-card" href="https://www.uqp.com.au/books/too-much-lip-1" target="_blank">
-      <span class="link-icon">🛒</span>
-      <span class="link-text">
-        <span class="link-title">Buy ebook or audiobook — UQP (publisher)</span>
-        <span class="link-sub">Kobo, Apple Books, Google Play, Audible</span>
-      </span>
-    </a>
-  </div>
+<!-- NAV -->
+<nav>
+  <span class="nav-brand">Curtin Library · Indigenous Book Club</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#sessions">Sessions</a></li>
+  </ul>
+</nav>
 
-  <div class="section">
-    <p class="section-label">Podcasts</p>
-    <a class="link-card" href="https://thegarretpodcast.com/melissa-lucashenko/" target="_blank">
-      <span class="link-icon">🎙</span>
-      <span class="link-text">
-        <span class="link-title">The Garret — Interview with Melissa Lucashenko</span>
-        <span class="link-sub">In-depth conversation about writing Too Much Lip · ~45 min</span>
-      </span>
-    </a>
-    <a class="link-card" href="https://podcasts.apple.com/au/podcast/melissa-lucashenko-too-much-lip/id640445035?i=1000521025490" target="_blank">
-      <span class="link-icon">🎙</span>
-      <span class="link-text">
-        <span class="link-title">Ideas at the House — Lucashenko in conversation with Benjamin Law</span>
-        <span class="link-sub">Sydney Opera House podcast · 30 min</span>
-      </span>
-    </a>
-    <a class="link-card" href="https://omny.fm/shows/sydney-writers-festival/opening-night-address" target="_blank">
-      <span class="link-icon">🎙</span>
-      <span class="link-text">
-        <span class="link-title">SWF Opening Night — Lucashenko, Tara June Winch & Evelyn Araluen</span>
-        <span class="link-sub">On storytelling, voice and Indigenous literature</span>
-      </span>
-    </a>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Curtin University Library</p>
+    <h1>Indigenous<br>Book Club</h1>
+    <p class="hero-sub">A low-pressure, culturally safe space for Indigenous staff and students to come together, yarn, and share stories.</p>
+    <div class="hero-divider"></div>
   </div>
+</section>
 
-  <div class="section">
-    <p class="section-label">Radio</p>
-    <a class="link-card" href="https://www.abc.net.au/radionational/programs/the-book-show/melissa-lucashenko/9957936" target="_blank">
-      <span class="link-icon">📻</span>
-      <span class="link-text">
-        <span class="link-title">ABC Radio National — The Book Show</span>
-        <span class="link-sub">Short interview, great intro to the book</span>
-      </span>
-    </a>
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <p class="section-eyebrow">About</p>
+  <h2>What is the Indigenous Book Club?</h2>
+  <p>A bi-monthly gathering hosted by Curtin Library — a chance to slow down, connect, and explore stories together. Sessions run for 60–90 minutes, in-person at the library, with hybrid options available.</p>
+  <p>There's no pressure to read the whole book. You can engage through a podcast, an audiobook, a short film, or just come ready to listen and chat. The emphasis is on connection, not critique.</p>
+
+  <div class="safety-banner">
+    <p>✦ This space is designed for Indigenous staff and students. Participation is always opt-in and entirely on your terms.</p>
   </div>
+</section>
 
-  <div class="section">
-    <p class="section-label">Video</p>
-    <a class="link-card" href="https://www.youtube.com/watch?v=XQ6cPGEtKFM" target="_blank">
-      <span class="link-icon">▶️</span>
-      <span class="link-text">
-        <span class="link-title">Melissa Lucashenko — Miles Franklin win</span>
-        <span class="link-sub">YouTube · Short and celebratory</span>
-      </span>
-    </a>
-    <a class="link-card" href="https://www.youtube.com/watch?v=Y0-T4jGD55E" target="_blank">
-      <span class="link-icon">▶️</span>
-      <span class="link-text">
-        <span class="link-title">What inspires you to write?</span>
-        <span class="link-sub">YouTube · Short clip, recorded during writing of Too Much Lip</span>
-      </span>
-    </a>
-    <a class="link-card" href="https://www.youtube.com/watch?v=ca1LP2e91vk" target="_blank">
-      <span class="link-icon">▶️</span>
-      <span class="link-text">
-        <span class="link-title">On writing fictional characters</span>
-        <span class="link-sub">YouTube · Short clip from Copyright Agency</span>
-      </span>
-    </a>
+<hr class="divider">
+
+<!-- SESSIONS -->
+<section class="sessions-section" id="sessions">
+  <div class="sessions-inner">
+    <p class="section-eyebrow">Sessions</p>
+    <h2>Sessions</h2>
+    <p>Each session explores a different book, podcast, or story. All past and upcoming sessions are listed here.</p>
+    <div class="session-card">
+      <div class="session-card-header">
+        <span class="session-number">Session 01</span>
+        <span class="session-status"><span class="status-dot"></span>Coming up — 5 August</span>
+      </div>
+      <div class="session-card-body">
+        <div class="session-book">
+          <h3>Too Much Lip</h3>
+          <p class="by">Melissa Lucashenko</p>
+          <p>Kerry Salter rides back into her hometown on a stolen Harley to say goodbye to her dying Pop — and ends up in the middle of a fight to protect their Bundjalung country. Gritty, funny, and unflinching. Winner of the 2019 Miles Franklin Literary Award.</p>
+        </div>
+        <div class="session-meta">
+          <div class="meta-row">
+            <div class="meta-icon">📅</div>
+            <div>
+              <p class="meta-label">Date</p>
+              <p class="meta-value">Tuesday 5 August 2025</p>
+            </div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-icon">🕐</div>
+            <div>
+              <p class="meta-label">Time</p>
+              <p class="meta-value">5:30pm · 60–90 minutes</p>
+            </div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-icon">📍</div>
+            <div>
+              <p class="meta-label">Location</p>
+              <p class="meta-value">Curtin Library <span class="meta-note"><br>Room TBC · Hybrid available</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="session-card-footer">
+        <a href="too-much-lip.html" class="btn btn-primary">📚 Book &amp; all resources</a>
+        <a href="#" class="btn btn-outline">🗓 Register via LibCal</a>
+      </div>
+    </div>
+
+    <!-- FUTURE SESSIONS -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--bark);margin:2rem 0 0.4rem;">Future sessions</h3>
+    <p style="font-size:0.82rem;color:var(--warm-grey);margin-bottom:0.8rem;">Sessions run bi-monthly. Themes and dates for future sessions will appear here after the pilot.</p>
+    <div class="coming-soon">
+      <p>📖 Future sessions will be added here as they are confirmed.</p>
+    </div>
+
   </div>
+</section>
 
-  <div class="section">
-    <p class="section-label">Book club notes</p>
-    <a class="link-card" href="https://library.bathurst.nsw.gov.au/files/assets/bxlibrary/v/1/pdfs/bookclub-discussion-notes/too-much-lip-bc-discussion-notes.pdf" target="_blank">
-      <span class="link-icon">📄</span>
-      <span class="link-text">
-        <span class="link-title">Discussion notes — Bathurst Library</span>
-        <span class="link-sub">PDF with themes and discussion questions</span>
-      </span>
-    </a>
-  </div>
+<!-- FOOTER -->
+<footer>
+  <p>
+    Indigenous Book Club · Curtin University Library<br>
+    <a href="https://library.curtin.edu.au">library.curtin.edu.au</a>
+  </p>
+</footer>
 
-  <div class="footer">Curtin University Library · Indigenous Book Club</div>
-</div>
 </body>
 </html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Too Much Lip — Resources · Indigenous Book Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --sand:      #f5ead8;
+    --bark:      #3b2010;
+    --ochre:     #c96d2a;
+    --rust:      #a84820;
+    --cream:     #fdf6ec;
+    --warm-grey: #8c7a6b;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--bark);
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--bark);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-back {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: #c5a882;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--ochre); }
+  .nav-title {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6a5040;
+    font-weight: 500;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    background: var(--bark);
+    padding: 3rem 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 50% 80% at 90% 50%, #c96d2a14 0%, transparent 60%);
+  }
+  .header-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .session-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #c96d2a22;
+    border: 1px solid var(--ochre);
+    border-radius: 20px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.62rem;
+    color: var(--ochre);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: var(--sand);
+    line-height: 1.15;
+    margin-bottom: 0.3rem;
+  }
+  .page-header .author {
+    font-size: 0.9rem;
+    color: var(--ochre);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .page-header .desc {
+    font-size: 0.85rem;
+    color: #a08060;
+    font-weight: 300;
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+  }
+  .award-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #ffffff0f;
+    border: 1px solid #5a4030;
+    border-radius: 20px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.65rem;
+    color: #c5a882;
+    letter-spacing: 0.06em;
+  }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ── SECTION ── */
+  .resource-section { margin-bottom: 2.2rem; }
+  .section-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #e8d8c4;
+  }
+
+  /* ── LINK CARDS ── */
+  a.link-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1.1rem;
+    background: white;
+    border: 1px solid #e8d8c4;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--bark);
+    margin-bottom: 0.6rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  a.link-card:hover {
+    border-color: var(--ochre);
+    box-shadow: 0 2px 10px rgba(200,119,58,0.12);
+  }
+  .link-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    width: 2.2rem;
+    text-align: center;
+  }
+  .link-body { flex: 1; min-width: 0; }
+  .link-title {
+    font-weight: 600;
+    font-size: 0.88rem;
+    margin-bottom: 0.15rem;
+    color: var(--bark);
+  }
+  .link-sub {
+    font-size: 0.75rem;
+    color: var(--warm-grey);
+    font-weight: 300;
+  }
+  .link-arrow {
+    font-size: 0.8rem;
+    color: #d4b896;
+    flex-shrink: 0;
+  }
+
+  /* ── NOTE ── */
+  .note {
+    background: #f0ede8;
+    border-left: 3px solid #7a8c6e;
+    border-radius: 0 8px 8px 0;
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 2rem;
+  }
+  .note p {
+    font-size: 0.8rem;
+    color: #4a5c40;
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bark);
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
+  footer p {
+    font-size: 0.7rem;
+    color: #6a5040;
+    line-height: 1.8;
+  }
+  footer a { color: var(--ochre); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-back">← Back to Book Club</a>
+  <span class="nav-title">Session 01 Resources</span>
+</nav>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="header-inner">
+    <div class="session-pill">Session 01</div>
+    <h1>Too Much Lip</h1>
+    <p class="author">Melissa Lucashenko</p>
+    <p class="desc">Wise-cracking Kerry Salter rides back into her hometown on a stolen Harley to say goodbye to her dying Pop — and ends up fighting to protect their Bundjalung country. Gritty, funny and unflinching.</p>
+    <div class="award-pill">⭑ 2019 Miles Franklin Literary Award Winner</div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+
+  <div class="note">
+    <p>💡 No pressure to read the whole book. Everything below is a valid way to engage — pick what works for you and come ready to yarn.</p>
+  </div>
+
+  <!-- READ / LISTEN -->
+  <div class="resource-section">
+    <p class="section-label">Read or listen — free options first</p>
+
+    <a class="link-card" href="https://catalogue.curtin.edu.au/discovery/fulldisplay?docid=alma9939289344101951&context=L&vid=61CUR_INST:CUR_ALMA&lang=en&search_scope=MyInst_and_CI&adaptor=Local%20Search%20Engine&tab=Everything&query=any,contains,too%20much%20lip&offset=0" target="_blank" rel="noopener">
+      <span class="link-icon">🏛️</span>
+      <span class="link-body">
+        <span class="link-title">Borrow physical copy — TL Robertson Library</span>
+        <span class="link-sub">Available to loan from Curtin's TL Robertson Library · Check catalogue for availability</span>
+      </span>
+      <span class="link-arrow">↗</span>
+    </a>
+
+    <a class="link-card" href="https://ebookcentral.proquest.com/lib/curtin/detail.action?docID=5440981&pq-origsite=primo" target="_blank" rel="noopener">
+      <span class="link-icon">💻</span>
+      <span class="link-body">
+        <span class="link-title">Read online — ProQuest Ebook Central (Curtin login)</span>
+        <span class="link-sub">Free for Curtin staff and students · Log in with your Curtin credentials</span>
+      </span>
+      <span class="link-arrow">↗</span>
+    </a>
+
+    <a class="link-card" href="https://wapldmc.overdrive.com/media/4160314" target="_blank" rel="noopener">
+      <span class="link-icon">📱</span>
+      <span class="link-body">
+        <span class="link-title">Borrow ebook or audiobook — WA Public Libraries (Libby)</span>
+        <span class="link-sub">Free with your WA library card via OverDrive/Libby app</span>
+      </span>
+      <span class="link-arrow">↗</span>
+    </a>
+
+    <a class="link-card" href="https://www.uqp.com.au/books/too-much-lip-1" target="_blank" rel="noopener">
+      <span class="link-icon">🛒</span>
+      <span class="link-body">
+        <span class="link-title">Buy ebook or audiobook — UQP (publisher)</span>
+        <span class="link-sub">Available on Kobo, Apple Books, Google Play and Audible</span>
+      </span>
+      <span class="link-arrow">↗</span>
+    </a>
+  </div>
+
+  <!-- PODCASTS -->
+  <div class="resource-section">
+    <p class="section-label">Podcasts</p>
+
+    <a class="link-card" href="https://thegarretpodcast.com/melissa-lucashenko/" target="_blank" rel="noopener">
+      <span class="link-icon">🎙️</span>
+      <span class="link-body">
+        <span class="link-title">The Garret — Interview with Melissa Lucashenko</span>
+        <span class="link-sub">In-depth conversation about writing Too Much Lip · ~45 min · Free on website</span>
+      </span>
+      <span class="link-arrow">↗</span>
+    </a>
+
+    <a class="link-card" href="https://podcasts.apple.com/au/podcast/melissa-lucashenko-too-much-lip/id640445035?i=1000521025490" target="_blank" rel="noopener">
+      <span class="link-icon">🎙️</span>
+      <span class="link-body">
+        <span class="link-title">Ideas at the House — in conversation with Benjamin Law</span>
+        <span class="link-sub">Sydney Opera House podcast · 30 min · Apple Podcasts</span>
+      </span>
+      <span class="link-arrow">↗</span>
+    </a>
+
+    <a class="link-card" href="https://omny.fm/shows/sydney-writers-festival/opening-night-address" target="_blank" rel="noopener">
+      <span class="link-icon">🎙️</span>
+      <span class="link-body">
+        <span class="link-title">SWF Opening Night — Lucashenko, Tara June Winch &amp; Evelyn Araluen</span>
+        <span class="link-sub">On storytelling, voice and Indigenous literature · Sydney Writers' Festival</span>
+      </span>
+      <span class="link-arrow">↗</span>
+    </a>
+  </div>
+
+  <!-- RADIO -->
+  <div class="resource-section">
+    <p class="section-label">Radio</p>
+
+    <a class="link-card" href="https://www.abc.net.au/radionational/programs/the-book-show/melissa-lucashenko/9957936" target="_blank" rel="noopener">
+      <span class="link-icon">📻</span>
+      <span class="link-body">
+        <span class="link-title">ABC Radio National — The Book Show</span>
+        <span class="link-sub">Short interview, great quick intro to the book</span>
+      </span>
+      <span class="link-arrow">↗</span>
+    </a>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="resource-section">
+    <p class="section-label">Video</p>
+
+    <a class="link-card" href="https://www.youtube.com/watch?v=XQ6cPGEtKFM" target="_blank" rel="noopener">
+      <span class="link-icon">▶️</span>
+      <span class="link-body">
+        <span class="link-title">Melissa Lucashenko — Miles Franklin win</span>
+        <span class="link-sub">YouTube · Short and celebratory — good intro clip</span>
+      </span>
+      <span class="link-arrow">↗</span>
+    </a>
+
+    <a class="link-card" href="https://www.youtube.com/watch?v=Y0-T4jGD55E" target="_blank" rel="noopener">
+      <span class="link-icon">▶️</span>
+      <span class="link-body">
+        <span class="link-title">What inspires you to write?</span>
+        <span class="link-sub">YouTube · Short clip recorded during the writing of Too Much Lip</span>
+      </span>
+      <span class="link-arrow">↗</span>
+    </a>
+
+    <a class="link-card" href="https://www.youtube.com/watch?v=ca1LP2e91vk" target="_blank" rel="noopener">
+      <span class="link-icon">▶️</span>
+      <span class="link-body">
+        <span class="link-title">On writing fictional characters</span>
+        <span class="link-sub">YouTube · Short clip from Copyright Agency</span>
+      </span>
+      <span class="link-arrow">↗</span>
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <p>
+    Indigenous Book Club · Curtin University Library ·
+    <a href="index.html">← Back to main page</a>
+  </p>
+</footer>
+
+</body>
+</html>
